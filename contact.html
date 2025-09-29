@@ -25,7 +25,11 @@
 
         <section class="contact-grid">
             <div class="container grid-2">
-                <form class="card" id="contact-form" novalidate>
+                <form class="card" id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+                    <input type="hidden" name="form-name" value="contact">
+                    <p style="display:none">
+                        <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+                    </p>
                     <div class="field">
                         <label for="name">Name</label>
                         <input id="name" name="name" type="text" placeholder="Your name" required>
@@ -42,10 +46,18 @@
                         <small class="error" data-for="message"></small>
                     </div>
                     <button class="btn btn-primary" type="submit">Send Message</button>
-                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                    <p class="form-status" id="form-status" role="status" aria-live="polite" hidden>✅ Thank you! Your message has been sent.</p>
                 </form>
                 <div>
                     <div class="placeholder-img ratio-4x3" aria-label="Map or studio image placeholder" style="background-image:url('assets/images/map.svg')"></div>
+                    <div class="card" style="margin-top:12px">
+                        <div class="field" style="margin-bottom:8px">
+                            <strong>Email:</strong> <a href="mailto:Ebendofori@gmail.com">Ebendofori@gmail.com</a>
+                        </div>
+                        <div class="field" style="margin-bottom:0">
+                            <strong>Phone:</strong> <a href="tel:0269251184">0269251184</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

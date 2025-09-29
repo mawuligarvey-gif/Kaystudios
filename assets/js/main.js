@@ -84,11 +84,15 @@ function setupContactForm() {
     valid &= showFieldError('message', message.length >= 10, 'Message should be at least 10 characters');
     if (!valid) return;
 
-    statusEl.textContent = 'Sending...';
-    setTimeout(() => {
-      statusEl.textContent = 'Thanks! Your message has been sent.';
-      form.reset();
-    }, 700);
+    if (statusEl) { statusEl.hidden = false; statusEl.classList.remove('show'); statusEl.textContent = 'Sending...'; }
+    fetch('/', { method: 'POST', body: new URLSearchParams([...data]) })
+      .then(() => {
+        if (statusEl) { statusEl.hidden = false; statusEl.textContent = '✅ Thank you! Your message has been sent.'; requestAnimationFrame(() => statusEl.classList.add('show')); }
+        form.reset();
+      })
+      .catch(() => {
+        if (statusEl) { statusEl.hidden = false; statusEl.classList.remove('show'); statusEl.textContent = 'Something went wrong. Please try again.'; }
+      });
   });
 }
 
