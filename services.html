@@ -48,22 +48,17 @@
             </div>
         </section>
 
-        <section class="portfolio-grid">
-            <div class="container">
-                <h2>Portfolio</h2>
-                <div class="grid-3">
-                    <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/portfolio-1.svg')"></div>
-                    <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/portfolio-2.svg')"></div>
-                    <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/portfolio-3.svg')"></div>
-                    <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/portfolio-2.svg')"></div>
-                    <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/portfolio-3.svg')"></div>
-                    <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/portfolio-1.svg')"></div>
-                </div>
-            </div>
-        </section>
+        <!-- Portfolio section removed as requested -->
     </main>
 
     <footer id="site-footer"></footer>
+            <script>
+                fetch('footer.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('site-footer').outerHTML = html;
+                    });
+            </script>
 </body>
 </html>
 

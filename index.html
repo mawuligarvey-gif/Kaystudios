@@ -11,6 +11,7 @@
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/router.js"></script>
     <meta name="description" content="Kay Studios — Creativity in Motion. Photography, Videography, Editing, and Branding."/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <header id="site-header"></header>
@@ -60,14 +61,7 @@
                         <a href="services.html" class="btn btn-outline">Explore Services</a>
                     </div>
                 </article>
-                <article class="preview-card">
-                    <a href="portfolio.html" class="preview-media placeholder-img ratio-4x3" style="background-image:url('assets/images/portfolio-1.svg')" aria-label="Portfolio preview"></a>
-                    <div class="preview-body">
-                        <h3>Portfolio</h3>
-                        <p>Selected work showcasing our craft across mediums and industries.</p>
-                        <a href="portfolio.html" class="btn btn-outline">View Portfolio</a>
-                    </div>
-                </article>
+                <!-- Portfolio preview removed as requested -->
                 <article class="preview-card">
                     <a href="blog.html" class="preview-media placeholder-img ratio-4x3" style="background-image:url('assets/images/kay2.jpg')" aria-label="Blog preview"></a>
                     <div class="preview-body">
@@ -91,6 +85,13 @@
     </main>
 
     <footer id="site-footer"></footer>
+            <script>
+                fetch('footer.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('site-footer').outerHTML = html;
+                    });
+            </script>
 </body>
 </html>
 

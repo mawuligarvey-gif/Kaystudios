@@ -25,6 +25,13 @@
     </main>
 
     <footer id="site-footer"></footer>
+            <script>
+                fetch('footer.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('site-footer').outerHTML = html;
+                    });
+            </script>
 </body>
 </html>
 

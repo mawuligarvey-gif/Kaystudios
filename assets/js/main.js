@@ -21,7 +21,6 @@ function injectHeader() {
         <div class="nav-links" id="nav-links">
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
-          <a href="portfolio.html">Portfolio</a>
           <a href="blog.html">Blog</a>
           <a href="contact.html">Contact</a>
         </div>
