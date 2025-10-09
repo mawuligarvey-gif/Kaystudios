@@ -34,6 +34,8 @@ function injectHeader() {
     toggle.addEventListener('click', () => {
       const open = links.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(open));
+      // prevent body scroll when menu is open on mobile
+      if (open) document.body.style.overflow = 'hidden'; else document.body.style.overflow = '';
     });
   }
 }
