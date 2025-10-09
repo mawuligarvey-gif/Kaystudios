@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
-  <rect width="1200" height="900" fill="#0f0f0f"/>
-  <circle cx="400" cy="420" r="120" fill="#d4af37" opacity="0.15"/>
-  <rect x="540" y="300" width="460" height="340" rx="18" fill="#0b0b0b" stroke="#2a2a2a"/>
-  <text x="50%" y="90%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, Arial" font-size="36" fill="#d4af37" opacity="0.6">Portfolio 3</text>
-</svg>
-
-
