@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Kay Studios</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="page">
+    <section class="page-hero small">
+      <div class="container">
+        <h1>Portfolio</h1>
+        <p class="muted">Selected work across photography, film and creative strategy.</p>
+      </div>
+    </section>
+
+    <section class="portfolio-grid">
+      <div class="container">
+        <div class="grid-3">
+          <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/portfolio-1.svg')"></div>
+          <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/portfolio-2.svg')"></div>
+          <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/portfolio-3.svg')"></div>
+          <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/kay1.jpg')"></div>
+          <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/kay2.jpg')"></div>
+          <div class="placeholder-img ratio-4x3" style="background-image:url('assets/images/mix.jpg')"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script>
+    fetch('footer.html').then(r=>r.text()).then(html=>document.getElementById('site-footer').outerHTML = html);
+  </script>
+</body>
+</html>

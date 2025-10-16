@@ -2,10 +2,86 @@
 document.addEventListener('DOMContentLoaded', () => {
   injectHeader();
   injectFooter();
+  splitHeroWords();
+  navEntrance();
   setupContactForm();
   markActiveNav();
+  setupRevealObserver();
+  initCapsuleSheen();
   requestAnimationFrame(() => document.body.classList.add('ready'));
 });
+
+// markSheen removed (hero typographic mark was reverted)
+
+function setupRevealObserver(){
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) {
+        e.target.classList.add('visible');
+        // also reveal any inner hero-animate blocks immediately
+        const heroAnim = e.target.querySelector('.hero-animate');
+        if (heroAnim) heroAnim.classList.add('visible');
+        // optional: stop observing once visible
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12});
+  // Observe overall reveal sections and also individual service cards for title reveal
+  document.querySelectorAll('.reveal, .service-card').forEach(el=>obs.observe(el));
+}
+
+function initCapsuleSheen(){
+  try{
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const cap = document.querySelector('.capsule');
+    if (!cap) return;
+    cap.style.position = 'relative';
+    const shine = document.createElement('span');
+    shine.className = 'capsule-sheen';
+    cap.appendChild(shine);
+    // trigger a CSS animation by adding class
+    setTimeout(()=> cap.classList.add('with-sheen'), 300);
+    // also start gentle gradient float
+    setTimeout(()=> cap.classList.add('animate-gradient'), 120);
+  }catch(e){/* ignore */}
+}
+
+// Split each hero-line into word spans so we can stagger per-word animation.
+function splitHeroWords(){
+  const lines = document.querySelectorAll('.hero-line');
+  if (!lines.length) return;
+  lines.forEach((line, lineIndex) => {
+    // skip if already split
+    if (line.dataset.split === '1') return;
+    const words = line.textContent.trim().split(/\s+/);
+    line.textContent = '';
+    words.forEach((w, i) => {
+      const span = document.createElement('span');
+      span.className = 'word';
+      span.textContent = w + (i < words.length - 1 ? ' ' : '');
+      span.style.setProperty('--w-i', i);
+      line.appendChild(span);
+    });
+    // base offset per original line delay (keep original stagger feel)
+    const baseDelays = [220, 460, 700];
+    const offset = baseDelays[lineIndex] || 0;
+    line.style.setProperty('--w-offset', offset + 'ms');
+    line.dataset.split = '1';
+  });
+}
+
+// Small nav entrance: stagger the nav-links on page load for a subtle entrance
+function navEntrance(){
+  try{
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    nav.classList.add('nav-entrance');
+    // remove the class after the sequence finishes so hover styles remain clean
+    setTimeout(()=>nav.classList.remove('nav-entrance'), 1600);
+  }catch(e){/* silent */}
+}
 
 function injectHeader() {
   const header = document.getElementById('site-header');
@@ -21,6 +97,7 @@ function injectHeader() {
         <div class="nav-links" id="nav-links">
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
           <a href="blog.html">Blog</a>
           <a href="contact.html">Contact</a>
         </div>
@@ -38,6 +115,8 @@ function injectHeader() {
       if (open) document.body.style.overflow = 'hidden'; else document.body.style.overflow = '';
     });
   }
+
+  // no scripted header animation (reverted to simple logo)
 }
 
 function injectFooter() {
@@ -92,7 +171,9 @@ function setupContactForm() {
         form.reset();
       })
       .catch(() => {
-        if (statusEl) { statusEl.hidden = false; statusEl.classList.remove('show'); statusEl.textContent = 'Something went wrong. Please try again.'; }
+        // fallback: open mail client with prefilled content
+        const mailto = `mailto:Ebendofori@gmail.com?subject=${encodeURIComponent('Contact from website: '+name)}&body=${encodeURIComponent(message+'\n\nFrom: '+name+' <'+email+'>')}`;
+        window.location.href = mailto;
       });
   });
 }

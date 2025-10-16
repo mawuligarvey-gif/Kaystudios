@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/router.js"></script>
@@ -17,67 +19,71 @@
     <header id="site-header"></header>
 
     <main>
-        <section class="hero" style="background:
-            radial-gradient(1200px 500px at 50% -10%, rgba(212,175,55,.12), rgba(0,0,0,0)),
-            url('assets/images/mix.jpg') center/cover no-repeat;">
-            <div class="hero-overlay"></div>
-            <div class="container overlay-content">
-                <h1>Kay Studios</h1>
-                <p class="tagline">Creativity in Motion</p>
-                <p class="hero-sub">
-                    We craft brand stories through photography, film, and design.
-                </p>
-                <div class="hero-cta">
-                    <a class="btn btn-primary" href="about.html">About Us</a>
-                    <a class="btn btn-outline" href="services.html">Our Services</a>
+            <section class="hero reveal">
+  <div class="hero-bg creative-bg">
+    <div class="overlay"></div>
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="assets/videos/creative-motion.mp4" type="video/mp4">
+      <!-- fallback image -->
+      <img src="assets/images/kay2.jpg" alt="Kay Studios Background">
+    </video>
+  </div>
+
+  <div class="container hero-inner center-content">
+    <h1 class="hero-title animate-text">
+      <span class="kay">KAY</span> <span class="studios">STUDIOS</span>
+    </h1>
+    <p class="hero-subtitle animate-fade">Creativity in Motion</p>
+    <a href="services.html" class="btn btn-primary animate-rise">Discover More</a>
+  </div>
+</section>
+
+
+    <section class="home-previews reveal">
+            <div class="container grid-3">
+                <article class="service-card">
+                    <div class="service-media" style="background-image:url('assets/images/kay1.jpg')"></div>
+                    <div class="service-body">
+                        <h3>Photography</h3>
+                        <p>Product, lifestyle and editorial photography with refined visual direction.</p>
+                        <a class="btn btn-outline" href="services.html">Explore</a>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <div class="service-media" style="background-image:url('assets/images/ser.jpg')"></div>
+                    <div class="service-body">
+                        <h3>Videography</h3>
+                        <p>Cinematic storytelling for brands: commercials, social, and long-form content.</p>
+                        <a class="btn btn-outline" href="services.html">Explore</a>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <div class="service-media" style="background-image:url('assets/images/mix.jpg')"></div>
+                    <div class="service-body">
+                        <h3>Editing & Strategy</h3>
+                        <p>Post-production, color, sound design and creative strategy to amplify impact.</p>
+                        <a class="btn btn-outline" href="services.html">Explore</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    <section class="portfolio-grid reveal">
+            <div class="container">
+                <h2>Selected Work</h2>
+                <div class="grid-3">
+                    <div class="placeholder-img" style="background-image:url('assets/images/portfolio-1.svg')"></div>
+                    <div class="placeholder-img" style="background-image:url('assets/images/portfolio-2.svg')"></div>
+                    <div class="placeholder-img" style="background-image:url('assets/images/portfolio-3.svg')"></div>
                 </div>
             </div>
         </section>
 
-        <section class="intro">
-            <div class="container">
-                <h2>We craft visuals that move people.</h2>
-                <p>
-                    We are a creative-driven agency providing innovative production and branding solutions.
-                </p>
-            </div>
-        </section>
-
-        <section class="home-previews">
-            <div class="container grid-4">
-                <article class="preview-card">
-                    <a href="about.html" class="preview-media placeholder-img ratio-4x3" style="background-image:url('assets/images/kay1.jpg')" aria-label="About preview"></a>
-                    <div class="preview-body">
-                        <h3>About</h3>
-                        <p>Meet the studio blending art and strategy to create impact.</p>
-                        <a href="about.html" class="btn btn-outline">Learn More</a>
-                    </div>
-                </article>
-                <article class="preview-card">
-                    <a href="services.html" class="preview-media placeholder-img ratio-4x3" style="background-image:url('assets/images/ser.jpg')" aria-label="Services preview"></a>
-                    <div class="preview-body">
-                        <h3>Services</h3>
-                        <p>Photography, videography, editing, and branding—end-to-end production.</p>
-                        <a href="services.html" class="btn btn-outline">Explore Services</a>
-                    </div>
-                </article>
-                <!-- Portfolio preview removed as requested -->
-                <article class="preview-card">
-                    <a href="blog.html" class="preview-media placeholder-img ratio-4x3" style="background-image:url('assets/images/kay2.jpg')" aria-label="Blog preview"></a>
-                    <div class="preview-body">
-                        <h3>Blog</h3>
-                        <p>Insights, process notes, and stories from behind the scenes.</p>
-                        <a href="blog.html" class="btn btn-outline">Read the Blog</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="cta-banner">
-            <div class="container cta-inner">
+    <section class="cta-banner container reveal">
+            <div class="cta-inner">
                 <div>
                     <h2>Ready to bring your vision to life?</h2>
-                    <p class="muted">Let’s collaborate on something remarkable. Tell us about your goals.</p>
+                    <p class="muted">Tell us about your goals — we’ll propose a creative approach tailored to your needs.</p>
                 </div>
                 <a href="contact.html" class="btn btn-primary">Start a Project</a>
             </div>
@@ -85,13 +91,11 @@
     </main>
 
     <footer id="site-footer"></footer>
-            <script>
-                fetch('footer.html')
-                    .then(response => response.text())
-                    .then(html => {
-                        document.getElementById('site-footer').outerHTML = html;
-                    });
-            </script>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => { document.getElementById('site-footer').outerHTML = html; });
+    </script>
 </body>
 </html>
 
